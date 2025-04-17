@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import {
   deleteTestCase,
   uploadTestCasesFromExcel,
-  // downloadTestCasesExcel,
+  downloadTestCasesExcel,
 } from "../api/testCaseAPI";
 
 export default function TestCaseList({
@@ -61,10 +61,10 @@ export default function TestCaseList({
     }
   };
 
-  // const handleExcelDownload = () => {
-  //   // Pass the current module filter to download only filtered data if a module is selected
-  //   downloadTestCasesExcel(moduleFilter);
-  // };
+  const handleExcelDownload = () => {
+    // Pass the current module filter to download only filtered data if a module is selected
+    downloadTestCasesExcel(moduleFilter);
+  };
 
   // Filter test cases based on selected module
   const filteredTestCases = moduleFilter
@@ -142,14 +142,15 @@ export default function TestCaseList({
           </div>
         </div>
       </div>
-      {/* <div className="m-2 flex justify-end gap-4">
+
+      <div className="m-2 flex justify-end gap-4">
         <button
           onClick={handleExcelDownload}
-          className="bg-green-500 hover:bg-green-600 text-white px-2 py-2 rounded"
+          className="bg-green-500 hover:bg-green-600 px-2 py-2 rounded"
         >
           Download Excel
         </button>
-      </div> */}
+      </div>
 
       {activeTab === "testcases" ? (
         // Test Cases View
